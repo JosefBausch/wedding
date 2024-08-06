@@ -16,7 +16,7 @@ A beautiful and interactive wedding website built with Laravel (backend) and Ang
 - Composer
 - Node.js 14+
 - npm or yarn
-- MySQL or PostgreSQL
+- MySQL
 
 ## Installation
 
