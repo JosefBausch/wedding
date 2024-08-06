@@ -1,0 +1,15 @@
+<nav>
+  <div class="flex-left lg-txt fancy-font">
+    <a routerLink="home"><span class="josef" id="j">Josef</span> + <span class="rose" id="r">Rose</span></a>
+  </div>
+  <div class="flex-right md-txt mobile-hide">
+    <a routerLink="rsvp">RSVP</a>
+    <a href="#">Photos</a>
+    <a routerLink="regitry">Registry</a>
+  </div>
+  <div class="flex-right md-txt mobile-show">
+    <button (click)="openSidebar()">
+      <span class="material-symbols-outlined xl-txt">menu</span>
+    </button>
+  </div>
+</nav>
