@@ -1,0 +1,126 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 5vh 0;
+  position: relative;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0); // Start with no background color
+  pointer-events: none; // Allow interactions with other elements
+  transition: background-color 0.3s ease; // Smooth transition for the darkening effect
+  z-index: 10; // Overlay above other content but below hovered images
+}
+
+.overlay.active {
+  background-color: rgba(0, 0, 0, 0.5); // Darken the overlay when active
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  position: relative; // Ensure grid items respect z-index
+  z-index: 15; // Ensure it's above the primary overlay but below the viewer and secondary overlay
+}
+
+.image-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 5px;
+  transition: transform 0.5s ease, box-shadow 0.3s ease, z-index .3s;
+  z-index: 5; // Default z-index for non-hovered images
+
+  &:hover {
+    transform: scale(1.1); // Enlarge the image
+    box-shadow:
+      0px 0px -12.5px rgba(0, 0, 0, 0.141),
+      0px 0px -18.7px rgba(0, 0, 0, 0.202),
+      0px 0px -14.8px rgba(0, 0, 0, 0.25),
+      0px 0px 8.3px rgba(0, 0, 0, 0.298),
+      0px 0px 81.7px rgba(0, 0, 0, 0.359),
+      0px 0px 500px rgba(0, 0, 0, 0.5);
+    z-index: 20; // Bring hovered image above the overlay
+    cursor: pointer;
+  }
+}
+
+.secondary-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); // Darken background when image viewer is open
+  z-index: 25; // Above the primary overlay but below the image viewer
+}
+
+.image-viewer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  padding: 1px;
+  border-radius: 10px;
+  z-index: 30; // Make sure it's above everything else
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.viewer-img {
+  max-width: 80vw;
+  max-height: 80vh;
+  width: 50vw;
+  height: auto;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  top: 10px;
+  right: 10px;
+  font-size: 2.5rem;
+  color: white;
+  border: 1px solid white;
+  width: 40px;
+  height: 40px;
+  background-color: var(--textDark);
+  cursor: pointer;
+  z-index: 40;
+}
+
+.prev-button, .next-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  z-index: 35;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  user-select: none;
+}
+
+.prev-button {
+  left: -40px;
+}
+
+.next-button {
+  right: -40px;
+}
