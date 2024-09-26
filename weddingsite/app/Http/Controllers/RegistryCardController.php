@@ -48,4 +48,30 @@ class RegistryCardController extends Controller
         // Redirect back with a success message
         return back()->with('message', 'Registry item updated successfully');
     }
+    /*create*/
+    public function store(Request $request, RegistryCard $model)
+    {
+        // Validate the request
+        $validatedData = $request->validate([
+            'title' => 'required|max:255|min:2',
+            'description' => 'nullable|max:1000',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust file size if needed
+            'product_link' => 'required|url|max:255',
+        ]);
+
+        // Handle file upload
+        if ($request->hasFile('image')) {
+            // Store the image in the 'public/images' directory (adjust as needed)
+            $imagePath = $request->file('image')->store('images', 'public');
+            $validatedData['image'] = $imagePath;
+        }
+
+        // Create the new registry card with the validated data
+        $model->create($validatedData);
+
+        // Return back with success message
+        return back()->with('message', 'Item added successfully');
+    }
+
 }
+

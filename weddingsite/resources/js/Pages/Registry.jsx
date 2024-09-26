@@ -2,6 +2,8 @@ import React, { useState, useMemo, useRef } from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from "@inertiajs/react";
 import Card from '@/Pages/Registry/Partials/Card.jsx';
+import AddItem from '@/Pages/Registry/Partials/AddItem.jsx'; // Import the AddItem component
+import { FaChevronDown, FaChevronRight } from 'react-icons/fa'; // Import icons
 
 export default function Registry({ auth, cardData }) {
     const [sortOption, setSortOption] = useState('all');
@@ -9,6 +11,7 @@ export default function Registry({ auth, cardData }) {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10; // You can adjust this number as needed
     const itemsRef = useRef(null); // Reference to the items container
+    const [isAddItemOpen, setIsAddItemOpen] = useState(false); // State to manage dropdown visibility
 
     const filteredCards = useMemo(() => {
         return cardData.filter(card => {
@@ -51,6 +54,29 @@ export default function Registry({ auth, cardData }) {
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
                             <h1 className="text-2xl font-semibold mb-4">Registry Items</h1>
+
+                            {/* Conditionally show the AddItem dropdown if the user is an admin */}
+                            {auth.user.admin && (
+                                <div className="mb-6">
+                                    <button
+                                        onClick={() => setIsAddItemOpen(!isAddItemOpen)}
+                                        className="flex items-center justify-between w-full bg-gray-100 border border-gray-300 rounded-md p-2 text-lg font-semibold text-josefBlue"
+                                    >
+                                        <span>{isAddItemOpen ? 'Hide Admin Tools' : 'Show Admin Tools'}</span>
+                                        {isAddItemOpen ? (
+                                            <FaChevronDown className="ml-2" />
+                                        ) : (
+                                            <FaChevronRight className="ml-2" />
+                                        )}
+                                    </button>
+                                    {isAddItemOpen && (
+                                        <div className="border rounded-md shadow-sm mt-2 p-4 bg-gray-50">
+                                            <AddItem /> {/* This component will only be shown to admin users */}
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+
                             <div className="mb-4 flex flex-col sm:flex-row justify-between items-center">
                                 <div className="flex items-center mb-4 sm:mb-0">
                                     <label htmlFor="sort" className="mr-2">Sort by:</label>

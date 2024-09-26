@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     })->name('home');
 
     Route::get('/reservations', [RegistryCardController::class, 'index'])->name('registry.index');
+    Route::post('/addreservation', [RegistryCardController::class, 'store'])->name('registry.store');
     Route::patch('/updatereservation/{id}', [RegistryCardController::class, 'update'])->name('registry.update');
     //Route::get('/registry', function() {
     //    return 'Registry route is working';
