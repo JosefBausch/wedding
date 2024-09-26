@@ -6,8 +6,6 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\RegistryCardController;
 
-Route::get('/registry', [RegistryCardController::class, 'index']);
-
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -31,10 +29,8 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('Welcome');
     })->name('home');
 
-    Route::get('/registry', function () {
-        return Inertia::render('Registry/View');
-    })->name('registry');
-
+    Route::get('/reservations', [RegistryCardController::class, 'index'])->name('registry.index');
+    Route::patch('/updatereservation/{id}', [RegistryCardController::class, 'update'])->name('registry.update');
     //Route::get('/registry', function() {
     //    return 'Registry route is working';
     //});

@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class RegistryCard extends Model
 {
-    use HasFactory;
+    protected $table = 'registry_cards';
+    protected $primaryKey = 'id';
+    protected $fillable = [
+        'id',
+        'title',
+        'link',
+        'image',
+        'is_reserved',
+        'user_id'
+    ];
 }
