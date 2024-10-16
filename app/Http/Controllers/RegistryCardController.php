@@ -2,76 +2,54 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\RegistryCard;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use App\Enums\ItemType;
 
 class RegistryCardController extends Controller
 {
-    /*read*/
-    public function index(RegistryCard $model)
+    public function index(Request $request)
     {
-        return Inertia::render('Registry', [
-            'cardData' => $model->all(),
-            'count' => $model->count(),
-        ]);
-    }
+        $query = RegistryCard::query();
 
-    /* Update */
-    public function update(Request $request, RegistryCard $model, $id)
-    {
-        // Log the incoming request data
-        Log::info('Update request received for registry item ID: ' . $id);
-        Log::info('Update request data: ', $request->all());
-
-        // Validate the incoming request data
-        $validatedData = $request->validate(
-            [
-                'is_reserved' => 'required|boolean', // Validate is_reserved as a boolean
-            ],
-            [
-                'is_reserved.boolean' => 'The is_reserved field must be true or false.', // Custom error message for boolean validation
-            ]
-        );
-
-        // Add the user_id to the validated data
-        $validatedData['user_id'] = Auth::id();
-
-        // Find the registry card by ID
-        $registryCard = $model->findOrFail($id);
-
-        // Update the registry card with validated data
-        $registryCard->update($validatedData);
-
-        // Redirect back with a success message
-        return back()->with('message', 'Registry item updated successfully');
-    }
-    /*create*/
-    public function store(Request $request, RegistryCard $model)
-    {
-        // Validate the request
-        $validatedData = $request->validate([
-            'title' => 'required|max:255|min:2',
-            'description' => 'nullable|max:1000',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Adjust file size if needed
-            'product_link' => 'required|url|max:255',
-        ]);
-
-        // Handle file upload
-        if ($request->hasFile('image')) {
-            // Store the image in the 'public/images' directory (adjust as needed)
-            $imagePath = $request->file('image')->store('images', 'public');
-            $validatedData['image'] = $imagePath;
+        // Handle filtering
+        if ($request->filter === 'registered') {
+            $query->where('is_reserved', true);
+        } elseif ($request->filter === 'not-registered') {
+            $query->where('is_reserved', false);
         }
 
-        // Create the new registry card with the validated data
-        $model->create($validatedData);
+        // Handle type filtering
+        if ($request->itemType && $request->itemType !== 'all') {
+            $query->where('item_type', $request->itemType); // Use item_type to match the column name in your database
+        }
 
-        // Return back with success message
-        return back()->with('message', 'Item added successfully');
+        // Handle search
+        if ($request->search) {
+            $query->where('title', 'like', '%' . $request->search . '%');
+        }
+
+        // Handle sorting
+        $sortField = 'title';
+        $sortDirection = 'asc';
+        if ($request->sort) {
+            [$sortField, $sortDirection] = explode('_', $request->sort);
+        }
+        $query->orderBy($sortField, $sortDirection);
+
+        // Get the filtered and/or searched results
+        $cardsData = $query->get();
+
+        return Inertia::render('Registry/View', [
+            'cardsData' => $cardsData,
+            'count' => $cardsData->count(),
+            'itemTypes' => ItemType::getValues(),
+            'initialFilter' => $request->filter,
+            'initialSearch' => $request->search,
+            'initialType' => $request->itemType, // Ensure this matches the frontend parameter
+            'initialSort' => $request->sort,
+        ]);
     }
 
 }
-

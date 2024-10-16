@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegistryCardController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\RegistryCardController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -15,27 +15,22 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
+Route::get('/home', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/registry', function () {
+    return Inertia::render('Registry/View');
+})->middleware(['auth', 'verified'])->name('registry.view');
+
+// In your routes/web.php or routes/api.php
+Route::get('/item-types', function () {
+    return response()->json(App\Enums\ItemType::getValues());
+});
+
+
 Route::middleware('auth')->group(function () {
-
-    Route::get('/rsvp', function () {
-        return Inertia::render('Rsvp');
-    })->name('rsvp');
-
-    Route::get('/home', function () {
-        return Inertia::render('Welcome');
-    })->name('home');
-
-    Route::get('/reservations', [RegistryCardController::class, 'index'])->name('registry.index');
-    Route::post('/addreservation', [RegistryCardController::class, 'store'])->name('registry.store');
-    Route::patch('/updatereservation/{id}', [RegistryCardController::class, 'update'])->name('registry.update');
-    //Route::get('/registry', function() {
-    //    return 'Registry route is working';
-    //});
-
+    Route::get('/registry', [RegistryCardController::class, 'index'])->name('registry.index');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

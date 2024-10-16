@@ -1,5 +1,8 @@
-export default function ApplicationLogo(props) {
+export default function ApplicationLogo() {
     return (
-        <span className="text-3xl font-bold font-pus"><span className="text-josefBlue">Josef</span> + <span className="text-rosePink">Rose</span></span>
+        <h1 className="font-pus text-3xl">
+            <span className="text-blue-300">Josef</span>+
+            <span className="text-rose-300">Rose</span>
+        </h1>
     );
 }
