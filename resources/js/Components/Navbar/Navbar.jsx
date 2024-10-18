@@ -3,8 +3,8 @@ import Sidebar from './Sidebar';
 export default function Navbar() {
     return (
         <>
-            <nav className="bg-frosted-yellow sticky top-0 z-10 flex w-full items-center p-4 shadow-md backdrop-blur-md">
-                <div className="font-pus mr-auto text-2xl">
+            <nav className="sticky top-0 z-10 flex w-full items-center bg-frosted-yellow p-4 shadow-md backdrop-blur-md">
+                <div className="mr-auto font-pus text-2xl">
                     <a href={route('dashboard')}>
                         <span className="text-blue-300">Josef</span>+
                         <span className="text-rose-300">Rose</span>
@@ -13,7 +13,7 @@ export default function Navbar() {
                 <div className="ml-auto hidden space-x-3 text-xl md:flex">
                     <a href="registry">Registry</a>
                     <a href="#">RSVP</a>
-                    <a href="#">Account</a>
+                    <a href="profile">Account</a>
                 </div>
                 <div className="ml-auto flex space-x-3 text-xl md:hidden">
                     <button
