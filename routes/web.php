@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return redirect()->route('home');
+    return redirect()->route('dashboard');
 });
 
 Route::get('/home', function () {
