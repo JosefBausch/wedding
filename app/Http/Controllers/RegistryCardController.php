@@ -22,7 +22,10 @@ class RegistryCardController extends Controller
 
         // Handle type filtering
         if ($request->itemType && $request->itemType !== 'all') {
-            $query->where('item_type', $request->itemType); // Use item_type to match the column name in your database
+            // Validate against the enum
+            if (ItemType::tryFrom($request->itemType) !== null) {
+                $query->where('item_type', $request->itemType); // Use item_type to match the column name in your database
+            }
         }
 
         // Handle search
@@ -44,7 +47,7 @@ class RegistryCardController extends Controller
         return Inertia::render('Registry/View', [
             'cardsData' => $cardsData,
             'count' => $cardsData->count(),
-            'itemTypes' => ItemType::getValues(),
+            'itemTypes' => $cardsData,
             'initialFilter' => $request->filter,
             'initialSearch' => $request->search,
             'initialType' => $request->itemType, // Ensure this matches the frontend parameter
@@ -52,4 +55,21 @@ class RegistryCardController extends Controller
         ]);
     }
 
+
+    public function store(Request $request)
+    {
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'link' => 'nullable|url',
+            'image' => 'nullable|url',
+            'item_type' => 'required|in:' . implode(',', array_column(ItemType::cases(), 'value')), // Use the enum values dynamically
+            'is_reserved' => 'boolean',
+        ]);
+
+        // Create a new registry card with validated data
+        RegistryCard::create($validatedData);
+
+        return back()->with('message', 'Item added successfully');
+    }
 }

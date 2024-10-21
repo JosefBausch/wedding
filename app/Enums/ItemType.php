@@ -4,14 +4,10 @@ namespace App\Enums;
 
 enum ItemType: string
 {
-    case Furniture = 'furniture';
-    case Electronics = 'electronics';
-    case Kitchenware = 'kitchenware';
-    case Decor = 'decor';
-    case Other = 'other';
-
-    public static function getValues(): array
-    {
-        return array_column(self::cases(), 'value');
-    }
+    /*make sure you update the frontend enum of the same name!*/
+    case FURNITURE = 'furniture';
+    case ELECTRONICS = 'electronics';
+    case KITCHENWARE = 'kitchenware';
+    case DECOR = 'decor';
+    case OTHER = 'other';
 }

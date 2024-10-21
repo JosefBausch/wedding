@@ -34,7 +34,7 @@ export default function Search() {
         <div className="flex w-full justify-center p-4 backdrop-blur-md">
             <div className="flex w-11/12 flex-col items-center gap-4 md:flex-row">
                 <select
-                    className="bg-frosted-white w-full rounded-lg border border-rose-300 p-2 backdrop-blur-md focus:border-rose-400 focus:outline-none md:w-1/3"
+                    className="w-full rounded-lg border border-rose-300 bg-frosted-white p-2 backdrop-blur-md focus:border-rose-400 focus:outline-none md:w-1/3"
                     value={filter}
                     onChange={handleFilterChange}
                 >
@@ -44,12 +44,15 @@ export default function Search() {
                 </select>
 
                 {/* Include the ItemTypeSelect component */}
-                <ItemTypeSelect onChange={handleItemTypeChange} />
+                <ItemTypeSelect
+                    onChange={handleItemTypeChange}
+                    showAllItems={true}
+                />
 
                 <input
                     type="text"
                     placeholder="Search for items..."
-                    className="bg-frosted-white w-full rounded-lg border border-rose-300 p-2 backdrop-blur-md focus:border-rose-400 focus:outline-none md:w-2/3"
+                    className="w-full rounded-lg border border-rose-300 bg-frosted-white p-2 backdrop-blur-md focus:border-rose-400 focus:outline-none md:w-2/3"
                     value={searchTerm}
                     onChange={handleSearchChange}
                 />

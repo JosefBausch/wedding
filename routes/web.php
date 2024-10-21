@@ -18,14 +18,13 @@ Route::get('/registry', function () {
     return Inertia::render('Registry/View');
 })->middleware(['auth', 'verified'])->name('registry.view');
 
-// In your routes/web.php or routes/api.php
 Route::get('/item-types', function () {
     return response()->json(App\Enums\ItemType::getValues());
 });
 
-
 Route::middleware('auth')->group(function () {
     Route::get('/registry', [RegistryCardController::class, 'index'])->name('registry.index');
+    Route::post('/addregistryitem', [RegistryCardController::class, 'store'])->name('registry.store');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

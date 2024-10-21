@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-use App\Enums\ItemType;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,6 +18,5 @@ class RegistryCard extends Model
 
     protected $casts = [
         'is_reserved' => 'boolean',
-        'item_type' => ItemType::class,
     ];
 }

@@ -14,14 +14,11 @@ return new class extends Migration
         Schema::create('registry_cards', function (Blueprint $table) {
             $table->id(); // Auto-incrementing ID
             $table->string('title'); // Title of the item
-            $table->string('link'); // Link to Amazon/Walmart/etc.
-            $table->string('image'); // URL of the item's image
+            $table->text('link'); // Link to Amazon/Walmart/etc.
+            $table->text('image'); // URL of the item's image
             $table->boolean('is_reserved')->default(false); // Reservation status
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null'); // Foreign key for users
-
-            // Adding the item_type column using the ItemType enum
-            $table->enum('item_type', \App\Enums\ItemType::getValues())->default(\App\Enums\ItemType::Other->value); // Enum for item types
-
+            $table->string('item_type'); // Enum for item types
             $table->timestamps(); // Created at and Updated at timestamps
         });
     }
