@@ -52,6 +52,9 @@ class RegistryCardController extends Controller
             'initialSearch' => $request->search,
             'initialType' => $request->itemType, // Ensure this matches the frontend parameter
             'initialSort' => $request->sort,
+            'can' => [
+                'create_registry_item' => auth()->user()->can('create-registry-item'),
+            ],
         ]);
     }
 
