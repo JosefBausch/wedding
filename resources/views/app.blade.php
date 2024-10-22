@@ -4,6 +4,23 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <meta name="title" content="Josef and Rose Bausch" />
+        <meta name="description" content="Celebrate our love with us! Get all the event details, RSVP, and browse the gift registry. Can't wait to see you!" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="josefplusrose.life" />
+        <meta property="og:title" content="Josef and Rose Bausch" />
+        <meta property="og:description" content="Celebrate our love with us! Get all the event details, RSVP, and browse the gift registry. Can't wait to see you!" />
+        <meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="josefplusrose.life" />
+        <meta property="twitter:title" content="Josef and Rose Bausch" />
+        <meta property="twitter:description" content="Celebrate our love with us! Get all the event details, RSVP, and browse the gift registry. Can't wait to see you!" />
+        <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+
         <link rel="apple-touch-icon" sizes="180x180" href="/storage/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/storage/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/storage/favicon-16x16.png">
