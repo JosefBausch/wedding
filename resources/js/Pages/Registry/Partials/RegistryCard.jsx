@@ -13,7 +13,9 @@ export default function RegistryCard({
     return (
         <div className="relative rounded-xl border-4 border-rose-100 bg-frosted-white p-4 shadow-lg backdrop-blur-md duration-300 hover:shadow-2xl md:border-white">
             <div className="absolute right-4 top-4">
-                <DeleteRegistryCard item_id={id} r={{ id, title }} />{' '}
+                {can.create_registry_item && (
+                    <DeleteRegistryCard item_id={id} r={{ id, title }} />
+                )}{' '}
                 {/* Pass id to DeleteRegistryCard */}
             </div>
             <img
