@@ -1,3 +1,4 @@
+import { usePage } from '@inertiajs/react';
 import DeleteRegistryCard from './DeleteRegistryItem';
 
 export default function RegistryCard({
@@ -9,6 +10,7 @@ export default function RegistryCard({
     item_type,
 }) {
     const reserved = is_reserved; // Use the boolean directly
+    const { can } = usePage().props;
 
     return (
         <div className="relative rounded-xl border-4 border-rose-100 bg-frosted-white p-4 shadow-lg backdrop-blur-md duration-300 hover:shadow-2xl md:border-white">
