@@ -57,7 +57,7 @@ export default function Sidebar() {
         <div>
             <div
                 id="mobile-menu"
-                className="bg-frosted-white fixed inset-0 z-20 flex -translate-x-full transform flex-col backdrop-blur-sm transition-transform duration-300 ease-in-out"
+                className="fixed inset-0 z-20 flex -translate-x-full transform flex-col bg-frosted-white backdrop-blur-sm transition-transform duration-300 ease-in-out"
             >
                 <div className="flex items-center justify-between p-4">
                     <div className="font-pus text-2xl">
@@ -74,16 +74,16 @@ export default function Sidebar() {
                     </button>
                 </div>
                 <div className="mt-6 flex flex-col items-center space-y-6 text-xl">
-                    <a href="#" className="hover:underline">
+                    <a href="registry" className="hover:underline">
                         Registry
                     </a>
-                    <a href="#" className="hover:underline">
+                    <a href="rsvp" className="hover:underline">
                         Accept Invite
                     </a>
-                    <a href="#" className="hover:underline">
+                    <a href="profile" className="hover:underline">
                         Account
                     </a>
-                    <a href="#" className="hover:underline">
+                    <a href="about" className="hover:underline">
                         About Us
                     </a>
                 </div>

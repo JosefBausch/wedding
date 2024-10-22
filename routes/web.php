@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistryCardController;
+use App\Http\Controllers\RsvpController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -26,10 +27,13 @@ Route::get('/item-types', function () {
 
 Route::middleware(['auth', 'can:create-registry-item'])->group(function () {
     Route::post('/addregistryitem', [RegistryCardController::class, 'store'])->name('registry.store');
+    Route::delete('/deleteregistryitem/{id}', [RegistryCardController::class, 'destroy'])->name('registry.destroy');
 });
 
 Route::middleware('auth')->group(function () {
     Route::get('/registry', [RegistryCardController::class, 'index'])->name('registry.index');
+
+    Route::get('/rsvp', [RsvpController::class, 'index'])->name('invite.index');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -12,7 +12,7 @@ export default function Navbar() {
                 </div>
                 <div className="ml-auto hidden space-x-3 text-xl md:flex">
                     <a href="registry">Registry</a>
-                    <a href="#">RSVP</a>
+                    <a href="rsvp">RSVP</a>
                     <a href="profile">Account</a>
                 </div>
                 <div className="ml-auto flex space-x-3 text-xl md:hidden">

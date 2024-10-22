@@ -18,14 +18,15 @@ export default function View({ auth, cardsData, count }) {
             <CountDisplay count={count} />
             <div className="flex w-full justify-center">
                 <div className="mt-4 grid w-11/12 grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-                    {cardsData.map((s) => (
+                    {cardsData.map((r) => (
                         <RegistryCard
-                            key={s.id}
-                            title={s.title}
-                            link={s.link}
-                            image={s.image}
-                            is_reserved={s.is_reserved}
-                            item_type={s.item_type}
+                            key={r.id} // This key is for React's reconciliation process
+                            id={r.id} // Pass the id to the RegistryCard
+                            title={r.title}
+                            link={r.link}
+                            image={r.image}
+                            is_reserved={r.is_reserved}
+                            item_type={r.item_type}
                         />
                     ))}
                 </div>

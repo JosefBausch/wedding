@@ -75,4 +75,17 @@ class RegistryCardController extends Controller
 
         return back()->with('message', 'Item added successfully');
     }
+
+    /* Delete */
+    public function destroy(RegistryCard $registryCardModel, $id)
+    {
+        // Find the registry item by ID
+        $registryItem = $registryCardModel->findOrFail($id);
+
+        // Delete the found registry item
+        $registryItem->delete(); // Use $registryItem instead of $registryCardModel
+
+        // Redirect back with a success message
+        return back()->with('message', 'Registry item deleted successfully');
+    }
 }

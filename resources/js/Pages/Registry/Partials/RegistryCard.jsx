@@ -1,4 +1,7 @@
+import DeleteRegistryCard from './DeleteRegistryItem';
+
 export default function RegistryCard({
+    id, // Accept the id prop here
     title,
     link,
     image,
@@ -8,7 +11,11 @@ export default function RegistryCard({
     const reserved = is_reserved; // Use the boolean directly
 
     return (
-        <div className="bg-frosted-white rounded-xl border-4 border-rose-100 p-4 shadow-lg backdrop-blur-md duration-300 hover:shadow-2xl md:border-white">
+        <div className="relative rounded-xl border-4 border-rose-100 bg-frosted-white p-4 shadow-lg backdrop-blur-md duration-300 hover:shadow-2xl md:border-white">
+            <div className="absolute right-4 top-4">
+                <DeleteRegistryCard item_id={id} r={{ id, title }} />{' '}
+                {/* Pass id to DeleteRegistryCard */}
+            </div>
             <img
                 src={image}
                 alt={title}
@@ -18,11 +25,12 @@ export default function RegistryCard({
                 <h2 className="text-lg font-semibold">{title}</h2>
                 <p className="text-sm text-gray-600">
                     {item_type.charAt(0).toUpperCase() + item_type.slice(1)}
-                </p>{' '}
-                {/* Display the item type */}
+                </p>
                 <div className="mt-4 flex gap-4">
                     <a
                         href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-full rounded-lg bg-rose-300 px-4 py-2 text-center text-white duration-300 hover:bg-rose-400"
                     >
                         View Item
