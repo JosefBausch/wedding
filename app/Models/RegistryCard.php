@@ -14,6 +14,7 @@ class RegistryCard extends Model
         'image',
         'is_reserved',
         'item_type',
+        'user_id',
     ];
 
     protected $casts = [

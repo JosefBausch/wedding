@@ -27,6 +27,7 @@ export default function View({ auth, cardsData, count }) {
                             image={r.image}
                             is_reserved={r.is_reserved}
                             item_type={r.item_type}
+                            user_id={r.user_id}
                         />
                     ))}
                 </div>

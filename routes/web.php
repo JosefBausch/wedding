@@ -32,6 +32,8 @@ Route::middleware(['auth', 'can:create-registry-item'])->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/registry', [RegistryCardController::class, 'index'])->name('registry.index');
+    Route::post('/registry/{id}/update', [RegistryCardController::class, 'update'])->name('registry.update');
+
 
     Route::get('/rsvp', [RsvpController::class, 'index'])->name('invite.index');
 

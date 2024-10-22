@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Models\RegistryCard;
 use Illuminate\Http\Request;
 use App\Enums\ItemType;
+use Illuminate\Support\Facades\Log;
 
 class RegistryCardController extends Controller
 {
@@ -14,9 +15,9 @@ class RegistryCardController extends Controller
         $query = RegistryCard::query();
 
         // Handle filtering
-        if ($request->filter === 'registered') {
+        if ($request->filter === 'reserved') {
             $query->where('is_reserved', true);
-        } elseif ($request->filter === 'not-registered') {
+        } elseif ($request->filter === 'not-reserved') {
             $query->where('is_reserved', false);
         }
 
@@ -58,6 +59,28 @@ class RegistryCardController extends Controller
         ]);
     }
 
+    /* Update */
+    public function update(Request $request, RegistryCard $model, $id)
+    {
+        // Log the incoming request data
+        Log::info('Register request for item with id of: ' . $id);
+        Log::info('Update request data: ', $request->all());
+
+        // Validate the incoming request data
+        $validatedData = $request->validate([
+            'is_reserved' => 'required|boolean', // Ensure is_reserved is boolean
+        ]);
+
+        $registryItem = $model->findOrFail($id);
+
+        // Update the is_reserved and user_id (set the current logged-in user's id)
+        $registryItem->update([
+            'is_reserved' => $validatedData['is_reserved'],
+            'user_id' => auth()->id(), // Get the logged-in user's id
+        ]);
+
+        return back()->with('message', 'Registry item updated successfully');
+    }
 
     public function store(Request $request)
     {

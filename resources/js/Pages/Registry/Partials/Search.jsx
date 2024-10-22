@@ -39,8 +39,8 @@ export default function Search() {
                     onChange={handleFilterChange}
                 >
                     <option value="all">All Items</option>
-                    <option value="registered">Registered</option>
-                    <option value="not-registered">Not Registered</option>
+                    <option value="reserved">Reserved</option>
+                    <option value="not-reserved">Not Reserved</option>
                 </select>
 
                 {/* Include the ItemTypeSelect component */}
