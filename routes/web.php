@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/registry', [RegistryCardController::class, 'index'])->name('registry.index');
     Route::post('/registry/{id}/update', [RegistryCardController::class, 'update'])->name('registry.update');
 
-
+    Route::patch('/rsvp/update/{code}', [RsvpController::class, 'update'])->name('invite.update');
     Route::get('/rsvp', [RsvpController::class, 'index'])->name('invite.index');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

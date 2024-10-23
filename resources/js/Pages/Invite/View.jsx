@@ -1,7 +1,7 @@
 import Modal from '@/Components/Modal'; // Import the Modal component
 import PrimaryButton from '@/Components/PrimaryButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import { Head, router } from '@inertiajs/react';
 import { useState } from 'react';
 
 export default function View({ auth }) {
@@ -22,19 +22,37 @@ export default function View({ auth }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        
         const codeFormat = /^[A-Z0-9]{4}-[A-Z0-9]{4}$/; // Match format XXXX-YYYY
         if (!codeFormat.test(inviteCode)) {
-            setError(
-                'Invalid code. Please enter a valid code in the format XXXX-YYYY.',
-            );
+            setError('Invalid code. Please enter a valid code in the format XXXX-YYYY.');
             setSuccess('');
-        } else {
-            setError('');
-            setSuccess('RSVP successful!');
-            // Handle form submission
+            return;
         }
+        
+        setError(''); // Clear previous errors
+        
+        // Send a PATCH request to the server to check the invite code
+        router.patch(
+            route('invite.update', { code: inviteCode }), // Update this to the correct route
+            { invite_code: inviteCode }, // Data to send
+            {
+                onSuccess: () => {
+                    setSuccess('RSVP successful!');
+                    setError(''); // Clear errors on success
+                },
+                onError: (errors) => {
+                    if (errors.code) {
+                        setError('The invite code you entered does not match any records. Please check and try again.');
+                        setSuccess(''); // Clear success message on error
+                    } else {
+                        setError('An unexpected error occurred. Please try again later.');
+                    }
+                },
+            }
+        );
     };
+    
 
     return (
         <AuthenticatedLayout user={auth.user}>
