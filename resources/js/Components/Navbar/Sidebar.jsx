@@ -83,13 +83,9 @@ export default function Sidebar() {
                     <a href="profile" className="hover:underline">
                         Account
                     </a>
-                    <a href="about" className="hover:underline">
-                        About Us
-                    </a>
                 </div>
                 <div className="mt-auto flex items-center justify-center p-4 text-center text-base font-semibold text-blue-400">
-                    <i className="fa-regular fa-copyright mr-2"></i> Josef+Rose
-                    2024 - All Rights Reserved
+                    <i className="fa-regular fa-copyright mr-2"></i> 2024 - 2025 Josef+Rose
                 </div>
             </div>
         </div>

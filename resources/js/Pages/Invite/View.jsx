@@ -1,130 +1,133 @@
-import Modal from '@/Components/Modal'; // Import the Modal component
+import Modal from '@/Components/Modal';
 import PrimaryButton from '@/Components/PrimaryButton';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, router } from '@inertiajs/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function View({ auth }) {
-    const [inviteCode, setInviteCode] = useState('');
-    const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
-    const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
+export default function View({ auth, invitee, expected_party_size, errors, success, inviteCode: initialInviteCode }) {
+    const [inviteCode, setInviteCode] = useState(initialInviteCode || '');
+    const [actualPartySize, setActualPartySize] = useState(expected_party_size ?? 1);
+    const [error, setError] = useState(errors?.error || '');
+    const [successMessage, setSuccessMessage] = useState(success || '');
+    const [step, setStep] = useState(invitee ? 2 : 1);
 
-    const handleChange = (e) => {
-        let input = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, ''); // Only allow letters and numbers
-
-        if (input.length > 4) {
-            input = input.slice(0, 4) + '-' + input.slice(4); // Auto-insert dash after the 4th character
+    useEffect(() => {
+        if (step === 2 && (actualPartySize === "" || isNaN(actualPartySize))) {
+            setActualPartySize(expected_party_size || 1);
         }
+    }, [step, expected_party_size]);
 
-        setInviteCode(input);
-    };
-
-    const handleSubmit = (e) => {
+    const handleCheckInvite = (e) => {
         e.preventDefault();
+        setError('');
         
-        const codeFormat = /^[A-Z0-9]{4}-[A-Z0-9]{4}$/; // Match format XXXX-YYYY
-        if (!codeFormat.test(inviteCode)) {
-            setError('Invalid code. Please enter a valid code in the format XXXX-YYYY.');
-            setSuccess('');
-            return;
-        }
-        
-        setError(''); // Clear previous errors
-        
-        // Send a PATCH request to the server to check the invite code
-        router.patch(
-            route('invite.update', { code: inviteCode }), // Update this to the correct route
-            { invite_code: inviteCode }, // Data to send
-            {
-                onSuccess: () => {
-                    setSuccess('RSVP successful!');
-                    setError(''); // Clear errors on success
-                },
-                onError: (errors) => {
-                    if (errors.code) {
-                        setError('The invite code you entered does not match any records. Please check and try again.');
-                        setSuccess(''); // Clear success message on error
-                    } else {
-                        setError('An unexpected error occurred. Please try again later.');
-                    }
-                },
+        router.get(route('invite.check', { code: inviteCode }), {
+            onSuccess: (page) => {
+                if (page.props.errors?.error) {
+                    setError(page.props.errors.error);
+                    return;
+                }
+                setStep(2);
+            },
+            onError: (errors) => {
+                setError(errors.error || 'Invalid invite code.');
             }
-        );
+        });
+    };   
+
+    const handleSubmitRSVP = (e) => {
+        e.preventDefault();
+        setError('');
+        setSuccessMessage('');
+        
+        console.log("Submitting with code:", inviteCode); // For debugging
+    
+        router.post(route('invite.respond'), { 
+            code: inviteCode,
+            actualPartySize
+        }, {
+            onSuccess: (page) => {
+                setSuccessMessage(page.props.success || 'RSVP submitted successfully!');
+                setTimeout(() => {
+                    window.location.href = route('invite.index'); // Redirect after success
+                }, 2000);
+            },
+            onError: (errors) => {
+                setError(errors.code || errors.error || 'An error occurred while submitting your RSVP.');
+                console.error("RSVP submission errors:", errors);
+            }
+        });
     };
     
-
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="RSVP" />
-
             <div className="flex items-center justify-center py-52">
                 <div className="w-full max-w-lg rounded-xl border-2 border-white bg-frosted-white p-8 shadow-md backdrop-blur-md">
-                    <h1 className="mb-6 text-center text-2xl font-bold">
-                        Enter the Code on the Back of Your Invite
-                    </h1>
+                    {step === 1 && (
+                        <>
+                            <h1 className="mb-6 text-center text-2xl font-bold">
+                                Enter the Code on the Back of Your Invite
+                            </h1>
+                            <form onSubmit={handleCheckInvite} className="space-y-4">
+                            <input
+                                type="text"
+                                value={inviteCode}
+                                onChange={(e) => {
+                                    let value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, ''); // Allow only alphanumeric, and force uppercase
 
-                    {/* RSVP Form */}
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                        <div className="flex items-center justify-between">
-                            <label className="block text-sm font-bold text-gray-700">
-                                Enter your invite code:
-                            </label>
-                            {/* Question mark badge */}
-                            <i
-                                className="fa-solid fa-circle-question cursor-pointer text-gray-500 hover:text-gray-700"
-                                onClick={() => setIsModalOpen(true)}
-                                aria-label="Help"
-                            ></i>
-                        </div>
+                                    if (value.length > 4) {
+                                        value = value.slice(0, 4) + '-' + value.slice(4, 8); // Auto-insert dash after 4th character
+                                    }
 
-                        <input
-                            type="text"
-                            value={inviteCode}
-                            onChange={handleChange}
-                            maxLength="9"
-                            placeholder="XXXX-YYYY"
-                            className="focus:ring-rosePink w-full rounded border border-gray-300 p-3 text-center focus:outline-none focus:ring-2"
-                            style={{ textTransform: 'uppercase' }}
-                        />
+                                    setInviteCode(value.slice(0, 9)); // Ensure max length is 9 (XXXX-YYYY)
+                                }}
+                                maxLength="9"
+                                placeholder="ABCD-1234"
+                                className="w-full rounded border p-3 text-center tracking-widest"
+                            />
+                                {error && <p className="text-sm text-red-500">{error}</p>}
+                                <div className="text-center">
+                                    <PrimaryButton>Submit Code</PrimaryButton>
+                                </div>
+                            </form>
+                        </>
+                    )}
 
-                        {error && (
-                            <p className="text-sm text-red-500">{error}</p>
-                        )}
-                        {success && (
-                            <p className="text-sm text-green-500">{success}</p>
-                        )}
+                    {step === 2 && (
+                        <>
+                            <h1 className="mb-6 text-center text-2xl font-bold">Welcome, {invitee}!</h1>
+                            <p className="text-center">How many people in your group are coming?</p>
+                            <p className="text-center text-sm text-gray-500">(Maximum: {expected_party_size})</p>
 
-                        <div className="text-center">
-                            <PrimaryButton>Submit RSVP</PrimaryButton>
-                        </div>
-                    </form>
+                            <form onSubmit={handleSubmitRSVP} className="mt-4 space-y-4">
+                                <input 
+                                    type="hidden" 
+                                    name="code" 
+                                    value={inviteCode} 
+                                />
+                                <input
+                                    type="number"
+                                    value={actualPartySize}
+                                    onChange={(e) => {
+                                        const value = e.target.value === "" ? "" : Math.min(expected_party_size, Number(e.target.value));
+                                        setActualPartySize(value);
+                                    }}
+                                    min="0"
+                                    max={expected_party_size}
+                                    className="w-full rounded border p-3 text-center"
+                                    placeholder="Enter actual party size"
+                                />
+                                {successMessage && <p className="text-sm text-green-500">{successMessage}</p>}
+                                {error && <p className="text-sm text-red-500">{error}</p>}
+                                <div className="text-center">
+                                    <PrimaryButton>Submit RSVP</PrimaryButton>
+                                </div>
+                            </form>
+                        </>
+                    )}
                 </div>
             </div>
-
-            {/* Using the Modal Component */}
-            <Modal show={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                <h2 className="text-xl font-bold">Invite Code Help</h2>
-                <div className="m-4 flex items-center justify-center">
-                    <object
-                        data="/storage/ShowInviteCode.svg"
-                        type="image/svg+xml"
-                    ></object>
-                    <p className="m-4 mr-6 text-xl">
-                        The invite code is printed on the back of your
-                        invitation. It should be in the format XXXX-YYYY, where
-                        each X and Y is a letter or number.
-                    </p>
-                </div>
-                <div className="mt-6 text-right">
-                    <PrimaryButton
-                        className="bg-rosePink rounded px-4 py-2 text-white"
-                        onClick={() => setIsModalOpen(false)}
-                    >
-                        Close
-                    </PrimaryButton>
-                </div>
-            </Modal>
         </AuthenticatedLayout>
     );
 }
