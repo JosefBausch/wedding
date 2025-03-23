@@ -1,11 +1,9 @@
 <?php
 
-namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class RsvpCodeSeeder extends Seeder
+class RsvpRolesSeeder extends Seeder
 {
     public function run()
     {
@@ -13,9 +11,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'FZBZ-7419',
                 'invitee' => 'Tanner and Tayla',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -23,9 +21,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'JHTN-4718',
                 'invitee' => 'Dale',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 0,
                 'created_at' => now()
@@ -33,9 +31,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'GIEI-2432',
                 'invitee' => 'Judy',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -43,9 +41,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'JRJX-8753',
                 'invitee' => 'Arron and Luann',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -53,9 +51,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'WWQM-3201',
                 'invitee' => 'Danny, Molly, and Nana',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 3,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -63,9 +61,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'VXKR-5107',
                 'invitee' => 'Virgil and Katrina',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -73,9 +71,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'XBPN-7973',
                 'invitee' => 'Dan',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -83,9 +81,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'KVEX-6087',
                 'invitee' => 'Alan, Bethany, Emmy, Olivia, Cole, and Blaine',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 6,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 0,
                 'created_at' => now()
@@ -93,9 +91,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'XEIM-3238',
                 'invitee' => 'Kent, Megan, Grace, Will, and Leia',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 5,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 0,
                 'created_at' => now()
@@ -103,19 +101,19 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'CTIJ-5649',
                 'invitee' => 'Joel, Olivia, Ella, Elizabeth, and baby',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 5,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
             ],
             [
                 'code' => 'PZGI-1091',
-                'invitee' => 'Nrett, Star, Makenna, Alexa, and Cruz',
-                'user_id' => NULL,
+                'invitee' => 'Brett, Star, Makenna, Alexa, and Cruz',
+                'user_id' => None,
                 'expected_party_size' => 5,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -123,9 +121,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'BHNG-7743',
                 'invitee' => 'Julie and Zachary',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -133,9 +131,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'OFDS-5687',
                 'invitee' => 'Chuck, Lois, Travis, and Jesse',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 4,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 0,
                 'created_at' => now()
@@ -143,9 +141,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'XZHG-4400',
                 'invitee' => 'Grant, Jenn, and Ainsley',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 3,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -153,9 +151,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'CDAY-2298',
                 'invitee' => 'Jake and Katrianne',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -163,9 +161,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'IOHT-5148',
                 'invitee' => 'Daryl, Christy, Audrey, and Darcy',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 4,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -173,9 +171,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'XQTE-8641',
                 'invitee' => 'Gene, Lana, Kayla, and Kami',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 4,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -183,9 +181,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'KADM-7842',
                 'invitee' => 'Matt, Shari, and Jesseca',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 3,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -193,9 +191,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'OFWC-7661',
                 'invitee' => 'Breann, Teagan, Dusty, and Shelby',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 4,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -203,9 +201,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'YDKW-8073',
                 'invitee' => 'Deb',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -213,9 +211,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'LCXH-0701',
                 'invitee' => 'Derek, Carly, Evie, Drew, and baby',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 5,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -223,9 +221,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'ZZHY-6491',
                 'invitee' => 'Rick and Julie',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 0,
                 'created_at' => now()
@@ -233,9 +231,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'YMZD-6604',
                 'invitee' => 'Jared, Chloe, Marian, and Myrah',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 4,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 0,
                 'created_at' => now()
@@ -243,9 +241,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'QAVL-3004',
                 'invitee' => 'Jesse, Cara, Gianna, Everly, and Delaney',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 5,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -253,9 +251,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'VUAI-2674',
                 'invitee' => 'Bob',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 0,
                 'created_at' => now()
@@ -263,9 +261,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'RRDR-9801',
                 'invitee' => 'Brantly and Sara',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 0,
                 'created_at' => now()
@@ -273,9 +271,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'PXUZ-6665',
                 'invitee' => 'Ryan, Natalina, and Noah',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 3,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -283,9 +281,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'AQTR-3172',
                 'invitee' => 'Nate, Brook, Mae, Noah, and Drake',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 5,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -293,9 +291,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'XHND-5718',
                 'invitee' => 'Michael, Rachel, Chyme, Lillith, Dameon, and Killian',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 6,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -303,9 +301,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'CVUI-0732',
                 'invitee' => 'Denis and Jackie',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -313,9 +311,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'JTBU-3020',
                 'invitee' => 'Micah, Brittany, Andrew, and Arlow',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 4,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -323,9 +321,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'DXAV-1319',
                 'invitee' => 'Jeremy and Jesseca',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -333,9 +331,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'EQIQ-6215',
                 'invitee' => 'Jeff, Amie, Curtis, Charlie, and Chloe',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 5,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -343,9 +341,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'MXOT-7823',
                 'invitee' => 'Casey, Heidi, Jacob, and Cohen',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 4,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -353,9 +351,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'YDVE-9537',
                 'invitee' => 'Robin, Crystal, Michelle, and Julietta',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 4,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -363,9 +361,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'ERBV-7765',
                 'invitee' => 'Mason and Wife',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -373,9 +371,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'NYPD-7469',
                 'invitee' => 'Thad, Ashlyn, and baby',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 3,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -383,9 +381,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'EUDX-7794',
                 'invitee' => 'Charlie and Briley',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -393,9 +391,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'ABMB-6756',
                 'invitee' => 'Joe and Julie',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -403,9 +401,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'IOBZ-9401',
                 'invitee' => 'Jim and Linda',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -413,9 +411,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'CSKA-7733',
                 'invitee' => 'Roy, Eileen, Harry, David, and Mary',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 5,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -423,9 +421,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'BDKB-0568',
                 'invitee' => 'Lee and Patsy',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -433,9 +431,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'FWJU-5785',
                 'invitee' => 'Jason, Lindsey, Jonah, and Alliyah',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 4,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -443,9 +441,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'ZNRB-0819',
                 'invitee' => 'Max, Lauren, and Smith',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 3,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -453,9 +451,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'BKQE-6981',
                 'invitee' => 'Bruce and Audrey',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -463,9 +461,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'NXFJ-8199',
                 'invitee' => 'Frank',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -473,9 +471,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'RYDB-5378',
                 'invitee' => 'Linda',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -483,9 +481,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'EDOV-9072',
                 'invitee' => 'Larry and Connie',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -493,9 +491,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'NHBF-2956',
                 'invitee' => 'Janet',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -503,9 +501,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'BSFS-5050',
                 'invitee' => 'Mark, Renee, Grace, and Brandy',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 4,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -513,9 +511,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'BYLP-2035',
                 'invitee' => 'Bertie',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -523,9 +521,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'BOQO-2784',
                 'invitee' => 'Mark, Lana, Ethan, and Tobey',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 4,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -533,9 +531,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'KWWG-6712',
                 'invitee' => 'Elizabeth',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -543,9 +541,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'LRVN-3013',
                 'invitee' => 'Kris, Dixie, Hadley, Bailey, and Kolter',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 5,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -553,9 +551,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'AGCH-4865',
                 'invitee' => 'Lydiann',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -563,9 +561,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'JZYY-4801',
                 'invitee' => 'Beatrice',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -573,9 +571,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'YAWI-4171',
                 'invitee' => 'Larry and Jenny',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -583,9 +581,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'TJFN-3963',
                 'invitee' => 'Ben and Patrice',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -593,9 +591,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'GELG-7653',
                 'invitee' => 'Marc, Jami, and Tyler',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 3,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -603,9 +601,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'LCVA-6126',
                 'invitee' => 'Pearline',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -613,9 +611,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'FBKA-3000',
                 'invitee' => 'Justin and Julie <3',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -623,9 +621,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'LAVQ-8289',
                 'invitee' => 'Jaden and Bennett',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -633,9 +631,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'KXAO-3736',
                 'invitee' => 'Harrison, Jaryn, and Faye',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 3,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -643,9 +641,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'KRTE-4989',
                 'invitee' => 'Jeff, Angie, and Lydiann',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 3,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -653,9 +651,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'JKWX-8554',
                 'invitee' => 'Kelly',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -663,9 +661,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'MSOC-5270',
                 'invitee' => 'Jocelynn',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -673,9 +671,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'XJCB-5736',
                 'invitee' => 'Roger and DeAnn',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -683,9 +681,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'UQEY-6389',
                 'invitee' => 'Jay, Melody, Lewis',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 3,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -693,9 +691,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'CWHN-0238',
                 'invitee' => 'Timmy, Julie, Wesley, and Aravis',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 4,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -703,9 +701,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'NJGE-6417',
                 'invitee' => 'Lizzy and Caroline',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -713,9 +711,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'MDOQ-8541',
                 'invitee' => 'Carson',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -723,9 +721,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'FWSZ-0231',
                 'invitee' => 'Willa',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -733,9 +731,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'FFAR-8804',
                 'invitee' => 'Blythe and Sophie',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 0,
                 'created_at' => now()
@@ -743,9 +741,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'KORY-9038',
                 'invitee' => 'Sidney',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 0,
                 'created_at' => now()
@@ -753,9 +751,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'KFRN-7084',
                 'invitee' => 'Alyvia and Miley',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 0,
                 'created_at' => now()
@@ -763,9 +761,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'WAFC-9515',
                 'invitee' => 'Anna',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 0,
                 'created_at' => now()
@@ -773,9 +771,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'CHOT-4875',
                 'invitee' => 'Benji',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 0,
                 'created_at' => now()
@@ -783,9 +781,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'LQFN-8572',
                 'invitee' => 'Weston',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -793,19 +791,19 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'UPPN-4797',
                 'invitee' => 'Justin and Darci',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 0,
                 'created_at' => now()
             ],
             [
                 'code' => 'RRGE-8613',
-                'invitee' => 'Johny and Brittney',
-                'user_id' => NULL,
+                'invitee' => 'Johny and Brittany',
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 0,
                 'created_at' => now()
@@ -813,9 +811,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'CRJS-9654',
                 'invitee' => 'Craig and Desi',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 0,
                 'created_at' => now()
@@ -823,9 +821,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'OECI-6494',
                 'invitee' => 'Jarrett, Bailey, and Beau',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 3,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -833,9 +831,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'VIKM-2307',
                 'invitee' => 'Alex and Jazmyn',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -843,9 +841,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'OULL-1072',
                 'invitee' => 'Adam Ziv',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -853,9 +851,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'NOGC-0055',
                 'invitee' => 'Aiden',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -863,9 +861,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'VCNP-2210',
                 'invitee' => 'Preston and Alana',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -873,9 +871,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'DUDE-6633',
                 'invitee' => 'Alex Waitner',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -883,9 +881,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'KSXR-5070',
                 'invitee' => 'Prestin',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -893,9 +891,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'ZDRM-2999',
                 'invitee' => 'Jackson and Sophia',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -903,9 +901,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'VEIB-9876',
                 'invitee' => 'Jayse Yoder',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -913,9 +911,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'YFGR-1892',
                 'invitee' => 'Luke',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 1,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -923,9 +921,9 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'MOYP-5150',
                 'invitee' => 'Leon and Wanda Stutzman',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
@@ -933,13 +931,363 @@ class RsvpCodeSeeder extends Seeder
             [
                 'code' => 'DTJA-2503',
                 'invitee' => 'Susan and Mr. Susan Wilson',
-                'user_id' => NULL,
+                'user_id' => None,
                 'expected_party_size' => 2,
-                'actual_party_size' => NULL,
+                'actual_party_size' => None,
                 'is_accepted' => 0,
                 'invited_to_both' => 1,
                 'created_at' => now()
-            ]
+            ],
+            [
+                'code' => 'BFDN-1579',
+                'invitee' => 'Brent, Fawn, Drew, Nash, Tynisha, and Breanna',
+                'user_id' => None,
+                'expected_party_size' => 6,
+                'actual_party_size' => None,
+                'is_accepted' => 0,
+                'invited_to_both' => 1,
+                'created_at' => now()
+            ],
+            [
+                'code' => 'PWKA-5697',
+                'invitee' => 'Kris and Shannon',
+                'user_id' => null,
+                'expected_party_size' => 2,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'JSIP-9015',
+                'invitee' => 'Sam and Amanda',
+                'user_id' => null,
+                'expected_party_size' => 5,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'IPAX-0098',
+                'invitee' => 'David and Shannon',
+                'user_id' => null,
+                'expected_party_size' => 2,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'YROP-0997',
+                'invitee' => 'Gary and Joyce',
+                'user_id' => null,
+                'expected_party_size' => 2,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'YLNV-6338',
+                'invitee' => 'Phil Bausch and Family',
+                'user_id' => null,
+                'expected_party_size' => 1,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'VNIB-4011',
+                'invitee' => 'John, Dianna, and Family',
+                'user_id' => null,
+                'expected_party_size' => 7,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'YJXX-9415',
+                'invitee' => 'Cheyenne Robertson and Family',
+                'user_id' => null,
+                'expected_party_size' => 3,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'LITH-2157',
+                'invitee' => 'Jim and Anita Braden',
+                'user_id' => null,
+                'expected_party_size' => 2,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'YYMP-4660',
+                'invitee' => 'Leonard and Carol Chatfield',
+                'user_id' => null,
+                'expected_party_size' => 2,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'UYDZ-0111',
+                'invitee' => 'Kevin Campbell',
+                'user_id' => null,
+                'expected_party_size' => 1,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'TRAJ-8073',
+                'invitee' => 'Virgil and Judy Chapman',
+                'user_id' => null,
+                'expected_party_size' => 1,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'VZIJ-7074',
+                'invitee' => 'Mike Hunnitcutt',
+                'user_id' => null,
+                'expected_party_size' => 1,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'SMZT-9774',
+                'invitee' => 'Matt Hunnicutt',
+                'user_id' => null,
+                'expected_party_size' => 1,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'YOVI-4551',
+                'invitee' => 'Melissa Galyean',
+                'user_id' => null,
+                'expected_party_size' => 1,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'MDJH-9285',
+                'invitee' => 'Mindy Hunnicutt',
+                'user_id' => null,
+                'expected_party_size' => 1,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'ITTH-0547',
+                'invitee' => 'Jeni Hunnicutt',
+                'user_id' => null,
+                'expected_party_size' => 2,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'BKLN-8646',
+                'invitee' => 'John, Sarah, and Atlie',
+                'user_id' => null,
+                'expected_party_size' => 3,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'NXTE-0261',
+                'invitee' => 'Joe, Hillary and Family',
+                'user_id' => null,
+                'expected_party_size' => 3,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'JSCX-6602',
+                'invitee' => 'Jake, Allison and Family',
+                'user_id' => null,
+                'expected_party_size' => 5,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'TRKA-3862',
+                'invitee' => 'Becky Hassler',
+                'user_id' => null,
+                'expected_party_size' => 1,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'UEOK-6113',
+                'invitee' => 'Nathan, Amanda, and Family',
+                'user_id' => null,
+                'expected_party_size' => 3,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'AWSH-9277',
+                'invitee' => 'Lettie Johnson',
+                'user_id' => null,
+                'expected_party_size' => 1,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'DCSZ-2141',
+                'invitee' => 'Kathy Mannahan',
+                'user_id' => null,
+                'expected_party_size' => 1,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'RGWF-0183',
+                'invitee' => 'Joan Mannahan and Family',
+                'user_id' => null,
+                'expected_party_size' => 1,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'TQCB-8216',
+                'invitee' => 'Julie Mather',
+                'user_id' => null,
+                'expected_party_size' => 1,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'GNNG-5824',
+                'invitee' => 'Danny Sanders',
+                'user_id' => null,
+                'expected_party_size' => 1,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'BYSP-0722',
+                'invitee' => 'Luke, Sara, and Family',
+                'user_id' => null,
+                'expected_party_size' => 5,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'HMLK-6745',
+                'invitee' => 'Eli Sanders and Family',
+                'user_id' => null,
+                'expected_party_size' => 5,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'BUQP-4288',
+                'invitee' => 'Roger and Kay Smith',
+                'user_id' => null,
+                'expected_party_size' => 2,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'PQFP-5349',
+                'invitee' => 'Mike and Lana Todd',
+                'user_id' => null,
+                'expected_party_size' => 2,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'SWWN-7331',
+                'invitee' => 'Richard and Tressa Townsend',
+                'user_id' => null,
+                'expected_party_size' => 2,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'ECJW-7270',
+                'invitee' => 'Lindy and Karen Woods',
+                'user_id' => null,
+                'expected_party_size' => 2,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'QIQU-5747',
+                'invitee' => 'Lucas Borton',
+                'user_id' => null,
+                'expected_party_size' => 1,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
+            [
+                'code' => 'YLEM-8778',
+                'invitee' => 'Landon',
+                'user_id' => null,
+                'expected_party_size' => 1,
+                'actual_party_size' => null,
+                'is_accepted' => false,
+                'invited_to_both' => 1,
+                'created_at' => now(),
+            ],
         ]);
     }
 }
