@@ -1,12 +1,28 @@
 import { useEffect, useState } from 'react';
 
 const quotes = [
-    { text: 'I got a lil girly drink on my way here...', author: 'Rose' },
+    { text: 'I got a little girly drink on my way here...', author: 'Rose' },
     { text: 'Red meat, its good for a man...', author: 'Josef' },
+    { text: "What's more important, your wife or yard waste?", author: 'Rose'},
+    { text: "Honey, I accidentally made 24 cabinets...", author: 'Josef' },
+    { text: "Are you on the toilet?", author: 'Rose' },
+    { text: "I like a girl that smells of tortilla...", author: 'Josef' },
+    { text: "Yeah but its small and its Saturday...", author: 'Rose' },
+    { text: "I swear you girls are... something else...", author: 'Josef' },
+    { text: "I'm kinda cravin a McBurger...", author: 'Rose' },
+    { text: "When you get old I'll hit your arm flaps...", author: 'Josef' },
+    { text: "Bring me a coffee or something...", author: 'Rose' },
+    { text: "Woah there buckaroo!! Stay away from my butt!", author: 'Josef' },
+    { text: "Handsome = 2 times gongeous...", author: 'Rose' },
+    { text: "There's a difference between Raising Cane's and meth...", author: 'Josef' },
+    { text: "You are not taking me to Olive Garden on Valentines Day.", author: 'Rose' },
+    { text: "Don't talk about my little hips...", author: 'Josef' },
 ];
 
 export default function QuoteSlideshow() {
-    const [currentQuoteIndex, setCurrentQuoteIndex] = useState(0);
+    const [currentQuoteIndex, setCurrentQuoteIndex] = useState(() => 
+        Math.floor(Math.random() * quotes.length) // Start on a random quote
+    );
     const [fade, setFade] = useState(true);
 
     useEffect(() => {
@@ -14,7 +30,7 @@ export default function QuoteSlideshow() {
             setFade(false);
             setTimeout(() => {
                 setCurrentQuoteIndex((prevIndex) =>
-                    prevIndex === quotes.length - 1 ? 0 : prevIndex + 1,
+                    prevIndex === quotes.length - 1 ? 0 : prevIndex + 1
                 );
                 setFade(true);
             }, 1000); // Fade out duration

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
+use App\Models\RsvpCode;
 
 class ProfileController extends Controller
 {
@@ -18,9 +19,20 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): Response
     {
+        $user = $request->user();
+
+        // Fetch all invites that were accepted by the current user
+        $acceptedInvites = RsvpCode::where('user_id', $user->id)
+            ->where('is_accepted', true)
+            ->get(['code', 'updated_at']);
+
         return Inertia::render('Profile/Edit', [
-            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
+            'mustVerifyEmail' => $user instanceof MustVerifyEmail,
             'status' => session('status'),
+            'acceptedInvites' => $acceptedInvites,
+            'can' => [
+                'create_registry_item' => auth()->user()?->can('create-registry-item'),
+            ],
         ]);
     }
 
