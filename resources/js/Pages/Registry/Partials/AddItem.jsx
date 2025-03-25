@@ -12,7 +12,7 @@ export default function AddItemModal() {
         title: '',
         link: '',
         image: '',
-        item_type: '',
+        item_type: 'furniture',
         is_reserved: false,
     });
 
@@ -28,12 +28,18 @@ export default function AddItemModal() {
 
     const submit = (e) => {
         e.preventDefault();
-
+    
+        console.log("Submitting request with data:", data); // Log the request data
+    
         router.post('/addregistryitem', data, {
             onSuccess: () => {
+                console.log("Request successful!"); // Log success message
                 reset(); // Reset the form after successful submission
                 closeModal(); // Close the modal
             },
+            onError: (errors) => {
+                console.error("Request failed with errors:", errors); // Log any errors
+            }
         });
     };
 
