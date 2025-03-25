@@ -11,6 +11,7 @@ export default function Navbar() {
                     </a>
                 </div>
                 <div className="ml-auto hidden space-x-3 text-xl md:flex">
+                    <a href="gallery">Gallery</a>
                     <a href="registry">Registry</a>
                     <a href="rsvp">RSVP</a>
                     <a href="profile">Account</a>

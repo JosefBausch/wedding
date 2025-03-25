@@ -17,6 +17,10 @@ Route::get('/home', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/gallery', function () {
+    return Inertia::render('Gallery/View');
+})->middleware(['auth', 'verified'])->name('gallery');
+
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('logout');

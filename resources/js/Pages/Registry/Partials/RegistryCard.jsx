@@ -18,6 +18,7 @@ export default function RegistryCard({
     const { can, auth } = usePage().props; // Get the current logged-in user
 
     const [isModalOpen, setIsModalOpen] = useState(false); // Modal visibility state
+    const [isViewItemModalOpen, setIsViewItemModalOpen] = useState(false); // New modal for "View Item"
 
     // Handle registering the item (setting is_reserved to true)
     const handleReserve = () => {
@@ -25,6 +26,12 @@ export default function RegistryCard({
             is_reserved: true,
         });
         setIsModalOpen(false); // Close modal after action
+    };
+
+    // Handle redirection after confirmation
+    const handleRedirect = () => {
+        window.open(link, '_blank'); // Open link in new tab
+        setIsViewItemModalOpen(false); // Close modal
     };
 
     return (
@@ -37,7 +44,7 @@ export default function RegistryCard({
             <img
                 src={image}
                 alt={title}
-                className="hidden h-56 w-full rounded-lg border-2 border-rose-100 object-cover md:block"
+                className="h-56 w-full rounded-lg border-2 border-rose-100 object-cover md:block"
             />
             <div className="mt-4">
                 <h2 className="text-lg font-semibold">{title}</h2>
@@ -56,16 +63,15 @@ export default function RegistryCard({
                         </button>
                     ) : (
                         <>
-                            <a
-                                href={link}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            {/* View Item Button - Triggers Modal */}
+                            <button
+                                onClick={() => setIsViewItemModalOpen(true)}
                                 className="w-full rounded-lg bg-rose-300 px-4 py-2 text-center text-white duration-300 hover:bg-rose-400"
                             >
                                 View Item
-                            </a>
+                            </button>
                             <button
-                                onClick={() => setIsModalOpen(true)} // Open modal on click
+                                onClick={() => setIsModalOpen(true)} // Open reserve modal
                                 className="w-full rounded-lg bg-blue-300 px-4 py-2 text-white duration-300 hover:bg-blue-400"
                             >
                                 Reserve
@@ -75,7 +81,7 @@ export default function RegistryCard({
                 </div>
             </div>
 
-            {/* Confirmation Modal */}
+            {/* Reserve Confirmation Modal */}
             <Modal show={isModalOpen} onClose={() => setIsModalOpen(false)}>
                 <h2 className="text-xl font-bold">Confirm Reservation</h2>
                 <p>
@@ -94,6 +100,28 @@ export default function RegistryCard({
                         onClick={handleReserve} // Confirm and reserve item
                     >
                         Confirm
+                    </PrimaryButton>
+                </div>
+            </Modal>
+
+            {/* View Item Confirmation Modal */}
+            <Modal show={isViewItemModalOpen} onClose={() => setIsViewItemModalOpen(false)}>
+                <h2 className="text-xl font-bold">Don't Forget to Register!</h2>
+                <p>
+                    Please remember to come back and mark the item as purchased after you buy it.
+                </p>
+                <div className="mt-6 text-right">
+                    <PrimaryButton
+                        className="bg-gray-300 rounded px-4 py-2 text-white"
+                        onClick={() => setIsViewItemModalOpen(false)} // Close modal
+                    >
+                        Cancel
+                    </PrimaryButton>
+                    <PrimaryButton
+                        className="bg-rose-300 ml-4 rounded px-4 py-2 text-white"
+                        onClick={handleRedirect} // Redirect to item link
+                    >
+                        Continue to Item
                     </PrimaryButton>
                 </div>
             </Modal>

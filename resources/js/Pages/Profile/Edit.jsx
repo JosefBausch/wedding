@@ -44,7 +44,7 @@ export default function Edit({ auth, mustVerifyEmail, status, acceptedInvites })
                                         <strong>Accepted on:</strong> {new Date(invite.updated_at).toLocaleString()}
                                     </p>
                                     <p className="text-sm text-gray-600 mt-2">
-                                        Think this is wrong? Call: 319-212-9050
+                                        Think this is wrong/have any questions? Call: 319-212-9050
                                     </p>
                                 </li>
                             ))}

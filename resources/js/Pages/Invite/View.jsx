@@ -10,6 +10,7 @@ export default function View({ auth, invitee, expected_party_size, errors, succe
     const [error, setError] = useState(errors?.error || '');
     const [successMessage, setSuccessMessage] = useState(success || '');
     const [step, setStep] = useState(invitee ? 2 : 1);
+    const [isHelpModalOpen, setIsHelpModalOpen] = useState(false); // Help modal state
 
     useEffect(() => {
         if (step === 2 && (actualPartySize === "" || isNaN(actualPartySize))) {
@@ -40,8 +41,8 @@ export default function View({ auth, invitee, expected_party_size, errors, succe
         setError('');
         setSuccessMessage('');
         
-        console.log("Submitting with code:", inviteCode); // For debugging
-    
+        console.log("Submitting with code:", inviteCode); // Debugging
+        
         router.post(route('invite.respond'), { 
             code: inviteCode,
             actualPartySize
@@ -49,8 +50,8 @@ export default function View({ auth, invitee, expected_party_size, errors, succe
             onSuccess: (page) => {
                 setSuccessMessage(page.props.success || 'RSVP submitted successfully!');
                 setTimeout(() => {
-                    window.location.href = route('invite.index'); // Redirect after success
-                }, 2000);
+                    window.location.href = route('profile.edit'); // Redirect to account page
+                }, 1500);
             },
             onError: (errors) => {
                 setError(errors.code || errors.error || 'An error occurred while submitting your RSVP.');
@@ -58,34 +59,43 @@ export default function View({ auth, invitee, expected_party_size, errors, succe
             }
         });
     };
-    
+
     return (
         <AuthenticatedLayout user={auth.user}>
             <Head title="RSVP" />
             <div className="flex items-center justify-center py-52">
-                <div className="w-full max-w-lg rounded-xl border-2 border-white bg-frosted-white p-8 shadow-md backdrop-blur-md">
+                <div className="w-full max-w-lg rounded-xl border-2 border-white bg-frosted-white p-8 shadow-md backdrop-blur-md relative">
+                    {/* Help Button */}
+                    <button 
+                        onClick={() => setIsHelpModalOpen(true)}
+                        className="absolute right-4 top-4 text-xl font-bold text-gray-600 hover:text-gray-900"
+                        title="Need help?"
+                    >
+                        <i className="fa-solid fa-question-circle"></i>
+                    </button>
+
                     {step === 1 && (
                         <>
                             <h1 className="mb-6 text-center text-2xl font-bold">
                                 Enter the Code on the Back of Your Invite
                             </h1>
                             <form onSubmit={handleCheckInvite} className="space-y-4">
-                            <input
-                                type="text"
-                                value={inviteCode}
-                                onChange={(e) => {
-                                    let value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, ''); // Allow only alphanumeric, and force uppercase
+                                <input
+                                    type="text"
+                                    value={inviteCode}
+                                    onChange={(e) => {
+                                        let value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, ''); // Allow only alphanumeric, and force uppercase
 
-                                    if (value.length > 4) {
-                                        value = value.slice(0, 4) + '-' + value.slice(4, 8); // Auto-insert dash after 4th character
-                                    }
+                                        if (value.length > 4) {
+                                            value = value.slice(0, 4) + '-' + value.slice(4, 8); // Auto-insert dash after 4th character
+                                        }
 
-                                    setInviteCode(value.slice(0, 9)); // Ensure max length is 9 (XXXX-YYYY)
-                                }}
-                                maxLength="9"
-                                placeholder="ABCD-1234"
-                                className="w-full rounded border p-3 text-center tracking-widest"
-                            />
+                                        setInviteCode(value.slice(0, 9)); // Ensure max length is 9 (XXXX-YYYY)
+                                    }}
+                                    maxLength="9"
+                                    placeholder="ABCD-1234"
+                                    className="w-full rounded border p-3 text-center tracking-widest"
+                                />
                                 {error && <p className="text-sm text-red-500">{error}</p>}
                                 <div className="text-center">
                                     <PrimaryButton>Submit Code</PrimaryButton>
@@ -128,6 +138,21 @@ export default function View({ auth, invitee, expected_party_size, errors, succe
                     )}
                 </div>
             </div>
+
+            {/* Help Modal */}
+            <Modal show={isHelpModalOpen} onClose={() => setIsHelpModalOpen(false)}>
+                <div className="p-6">
+                    <h2 className="text-xl font-bold">Need Help?</h2>
+                    <p className="mt-2 text-gray-600">
+                    <br />
+                    If you have any questions, please call or leave a voicemail at <strong>319-212-9050</strong>. <br /><br />
+                    If your code isn’t working after multiple attempts, don’t hesitate to reach out to the same number.
+                    </p>
+                    <div className="mt-4 text-right">
+                        <PrimaryButton onClick={() => setIsHelpModalOpen(false)}>Close</PrimaryButton>
+                    </div>
+                </div>
+            </Modal>
         </AuthenticatedLayout>
     );
 }
