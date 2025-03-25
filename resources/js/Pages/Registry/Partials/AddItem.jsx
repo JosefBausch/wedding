@@ -12,7 +12,7 @@ export default function AddItemModal() {
         title: '',
         link: '',
         image: '',
-        item_type: '',
+        item_type: 'furniture',
         is_reserved: false,
     });
 
