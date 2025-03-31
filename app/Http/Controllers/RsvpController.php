@@ -45,7 +45,7 @@ class RsvpController extends Controller
     {
         $request->validate([
             'code' => 'required|string|exists:rsvp_codes,code',
-            'actualPartySize' => 'required|integer|min:1',
+            'actualPartySize' => 'required|integer|min:0',
         ]);
 
         $rsvp = RsvpCode::where('code', $request->code)->firstOrFail();
@@ -74,7 +74,7 @@ class RsvpController extends Controller
     public function update(Request $request, $code)
     {
         $validatedData = $request->validate([
-            'actual_party_size' => 'required|integer|min:1',
+            'actual_party_size' => 'required|integer|min:0',
         ]);
 
         $rsvp = RsvpCode::where('code', $code)->first();

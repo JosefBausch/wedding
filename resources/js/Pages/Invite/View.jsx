@@ -108,7 +108,7 @@ export default function View({ auth, invitee, expected_party_size, errors, succe
                         <>
                             <h1 className="mb-6 text-center text-2xl font-bold">Welcome, {invitee}!</h1>
                             <p className="text-center">How many people in your group are coming?</p>
-                            <p className="text-center text-sm text-gray-500">(Maximum: {expected_party_size})</p>
+                            <p className="text-center text-sm text-gray-500">(Maximum of {expected_party_size} - Enter 0 if you are not attending)</p>
 
                             <form onSubmit={handleSubmitRSVP} className="mt-4 space-y-4">
                                 <input 

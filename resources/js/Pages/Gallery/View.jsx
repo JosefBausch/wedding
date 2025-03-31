@@ -1,7 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
-import { FaArrowLeft, FaArrowRight, FaTimes } from "react-icons/fa";
 
 export default function ImageGallery({ auth }) {
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
@@ -64,13 +63,13 @@ export default function ImageGallery({ auth }) {
                         className="absolute top-6 right-6 bg-white text-black text-3xl p-3 rounded-full shadow-md hover:bg-gray-300 transition"
                         onClick={() => setSelectedImageIndex(null)}
                     >
-                        <FaTimes />
+                        <i className="fa-solid fa-times"></i>
                     </button>
                     <button 
                         className="absolute left-6 text-white text-3xl bg-gray-800 p-3 rounded-full shadow-md hover:bg-gray-600 transition"
                         onClick={handlePrev}
                     >
-                        <FaArrowLeft />
+                        <i className="fa-solid fa-arrow-left"></i>
                     </button>
                     {selectedImageIndex !== null && (
                         <img 
@@ -83,7 +82,7 @@ export default function ImageGallery({ auth }) {
                         className="absolute right-6 text-white text-3xl bg-gray-800 p-3 rounded-full shadow-md hover:bg-gray-600 transition"
                         onClick={handleNext}
                     >
-                        <FaArrowRight />
+                        <i className="fa-solid fa-arrow-right"></i>
                     </button>
                 </Dialog.Panel>
             </Dialog>
