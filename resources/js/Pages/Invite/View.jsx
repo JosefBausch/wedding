@@ -21,7 +21,7 @@ export default function View({ auth, invitee, expected_party_size, errors, succe
     const handleCheckInvite = (e) => {
         e.preventDefault();
         setError('');
-        
+
         router.get(route('invite.check', { code: inviteCode }), {
             onSuccess: (page) => {
                 if (page.props.errors?.error) {
@@ -34,16 +34,16 @@ export default function View({ auth, invitee, expected_party_size, errors, succe
                 setError(errors.error || 'Invalid invite code.');
             }
         });
-    };   
+    };
 
     const handleSubmitRSVP = (e) => {
         e.preventDefault();
         setError('');
         setSuccessMessage('');
-        
+
         console.log("Submitting with code:", inviteCode); // Debugging
-        
-        router.post(route('invite.respond'), { 
+
+        router.post(route('invite.respond'), {
             code: inviteCode,
             actualPartySize
         }, {
@@ -66,7 +66,7 @@ export default function View({ auth, invitee, expected_party_size, errors, succe
             <div className="flex items-center justify-center py-52">
                 <div className="w-full max-w-lg rounded-xl border-2 border-white bg-frosted-white p-8 shadow-md backdrop-blur-md relative">
                     {/* Help Button */}
-                    <button 
+                    <button
                         onClick={() => setIsHelpModalOpen(true)}
                         className="absolute right-4 top-4 text-xl font-bold text-gray-600 hover:text-gray-900"
                         title="Need help?"
@@ -98,7 +98,9 @@ export default function View({ auth, invitee, expected_party_size, errors, succe
                                 />
                                 {error && <p className="text-sm text-red-500">{error}</p>}
                                 <div className="text-center">
-                                    <PrimaryButton>Submit Code</PrimaryButton>
+                                    <PrimaryButton disabled={!inviteCode.trim()} className={!inviteCode.trim() ? "opacity-50 cursor-not-allowed" : ""}>
+                                        Submit Code
+                                    </PrimaryButton>
                                 </div>
                             </form>
                         </>
@@ -111,11 +113,7 @@ export default function View({ auth, invitee, expected_party_size, errors, succe
                             <p className="text-center text-sm text-gray-500">(Maximum of {expected_party_size} - Enter 0 if you are not attending)</p>
 
                             <form onSubmit={handleSubmitRSVP} className="mt-4 space-y-4">
-                                <input 
-                                    type="hidden" 
-                                    name="code" 
-                                    value={inviteCode} 
-                                />
+                                <input type="hidden" name="code" value={inviteCode} />
                                 <input
                                     type="number"
                                     value={actualPartySize}
@@ -131,7 +129,9 @@ export default function View({ auth, invitee, expected_party_size, errors, succe
                                 {successMessage && <p className="text-sm text-green-500">{successMessage}</p>}
                                 {error && <p className="text-sm text-red-500">{error}</p>}
                                 <div className="text-center">
-                                    <PrimaryButton>Submit RSVP</PrimaryButton>
+                                    <PrimaryButton disabled={actualPartySize === ""} className={actualPartySize === "" ? "opacity-50 cursor-not-allowed" : ""}>
+                                        Submit RSVP
+                                    </PrimaryButton>
                                 </div>
                             </form>
                         </>
