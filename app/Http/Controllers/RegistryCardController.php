@@ -59,7 +59,6 @@ class RegistryCardController extends Controller
         ]);
     }
 
-    /* Update */
     public function update(Request $request, RegistryCard $model, $id)
     {
         // Log the incoming request data
@@ -73,11 +72,19 @@ class RegistryCardController extends Controller
 
         $registryItem = $model->findOrFail($id);
 
-        // Update the is_reserved and user_id (set the current logged-in user's id)
-        $registryItem->update([
-            'is_reserved' => $validatedData['is_reserved'],
-            'user_id' => auth()->id(), // Get the logged-in user's id
-        ]);
+        // If the item is being unreserved, set the user_id to null
+        if ($validatedData['is_reserved'] === false) {
+            $registryItem->update([
+                'is_reserved' => false,
+                'user_id' => null, // Remove the user who reserved it
+            ]);
+        } else {
+            // If the item is being reserved, assign the current user_id
+            $registryItem->update([
+                'is_reserved' => true,
+                'user_id' => auth()->id(), // Assign the current logged-in user's id
+            ]);
+        }
 
         return back()->with('message', 'Registry item updated successfully');
     }
