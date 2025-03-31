@@ -12,7 +12,6 @@ export default function RegistryCard({
     image,
     is_reserved,
     item_type,
-    user_id,
     user, // Added user info for the person who registered the item
 }) {
     const reserved = is_reserved;
