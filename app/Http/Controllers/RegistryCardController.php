@@ -43,7 +43,7 @@ class RegistryCardController extends Controller
         $query->orderBy($sortField, $sortDirection);
 
         // Get the filtered and/or searched results
-        $cardsData = $query->get();
+        $cardsData = $query->with('user')->get();  // Eager load the user data
 
         return Inertia::render('Registry/View', [
             'cardsData' => $cardsData,

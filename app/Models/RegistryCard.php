@@ -20,4 +20,9 @@ class RegistryCard extends Model
     protected $casts = [
         'is_reserved' => 'boolean',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
