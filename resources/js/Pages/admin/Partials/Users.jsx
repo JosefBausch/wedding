@@ -32,6 +32,7 @@ export default function Users({ users }) {
                             <tr className="bg-gray-100">
                                 <th className="border p-2 text-left">Name</th>
                                 <th className="border p-2 text-left">Email</th>
+                                {/* Added column for Created At */}
                             </tr>
                         </thead>
                         <tbody>
@@ -44,11 +45,12 @@ export default function Users({ users }) {
                                         <td className="border p-2">
                                             {user.email}
                                         </td>
+                                        {/* Displaying Created At */}
                                     </tr>
                                 ))
                             ) : (
                                 <tr>
-                                    <td colSpan="2" className="p-4 text-center">
+                                    <td colSpan="3" className="p-4 text-center">
                                         No users found.
                                     </td>
                                 </tr>

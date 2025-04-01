@@ -1,6 +1,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, router } from '@inertiajs/react';
 import { useState } from 'react';
+import { Link } from '@inertiajs/react';
 
 export default function AdminDashboard({
     auth,
@@ -240,6 +241,7 @@ export default function AdminDashboard({
                     <h2 className="mr-auto text-xl font-semibold">
                         RSVP Codes
                     </h2>
+                    <Link className="text-white px-4 py-2 mr-2 bg-red-400 rounded-md" href="/admin/dashboard/users">All Users</Link>
                     <button
                         onClick={handleExportCsv}
                         className="rounded bg-green-500 px-4 py-2 text-white hover:bg-green-700"
