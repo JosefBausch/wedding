@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\RsvpCode;
 use Illuminate\Support\Facades\Response;
+use App\Models\User;
 
 class AdminDashboardController extends Controller
 {
@@ -68,7 +69,7 @@ class AdminDashboardController extends Controller
 
     public function index(Request $request)
     {
-        $acceptedFilter = $request->query('accepted'); 
+        $acceptedFilter = $request->query('accepted');
         $invitedFilter = $request->query('invited');
         $inviteeFilter = $request->query('invitee');  // New invitee filter
 
@@ -97,7 +98,7 @@ class AdminDashboardController extends Controller
             ->paginate(15);
 
         // **New Calculations**
-        $totalExpectedAttendees = RsvpCode::sum('expected_party_size'); 
+        $totalExpectedAttendees = RsvpCode::sum('expected_party_size');
         $totalActualAttendees = RsvpCode::sum('actual_party_size');
 
         $expectedInvitedToBoth = RsvpCode::where('invited_to_both', true)->sum('expected_party_size');
@@ -106,7 +107,7 @@ class AdminDashboardController extends Controller
         $actualInvitedToBoth = RsvpCode::where('invited_to_both', true)->sum('actual_party_size');
         $actualNotInvitedToBoth = RsvpCode::where('invited_to_both', false)->sum('actual_party_size');
 
-        return Inertia::render('AdminDashboard', [
+        return Inertia::render('admin/AdminDashboard', [
             'auth' => auth()->user(),
             'totalExpectedAttendees' => $totalExpectedAttendees,
             'totalActualAttendees' => $totalActualAttendees,
@@ -141,4 +142,11 @@ class AdminDashboardController extends Controller
         return redirect()->route('admin.dashboard')->with('success', 'RSVP Code updated successfully.');
     }
 
+    public function users(Request $request) {
+        $users = User::select(['name', 'email'])->paginate(20);
+
+        return Inertia::render('admin/Partials/Users', [
+            'users' => $users
+        ]);
+    }
 }

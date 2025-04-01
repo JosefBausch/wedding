@@ -37,6 +37,7 @@ Route::middleware(['auth', 'can:create-registry-item'])->group(function () {
     Route::put('/admin/rsvp/{id}', [AdminDashboardController::class, 'update']);
     Route::delete('/admin/rsvp/delete/{id}', [RsvpController::class, 'destroy'])->name('rsvp.destroy');
     Route::get('/admin/rsvp/export-csv', [AdminDashboardController::class, 'exportCsv'])->name('admin.rsvp.exportCsv');
+    Route::get('/admin/dashboard/users', [AdminDashboardController::class, 'users'])->name('admin.dashboard.users');
 });
 
 Route::middleware('auth')->group(function () {
