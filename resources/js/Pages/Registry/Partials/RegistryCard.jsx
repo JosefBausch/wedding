@@ -159,9 +159,18 @@ export default function RegistryCard({
                 show={isViewItemModalOpen}
                 onClose={() => setIsViewItemModalOpen(false)}
             >
-                <h2 className="text-xl font-bold">Don't Forget to Register!</h2>
+                <h2 className="text-xl font-bold">Don't Forget to Reserve!</h2>
                 <p>
-                    Please remember to come back and mark the item as purchased
+                    <br></br>
+                    You are about to be redirected to our Amazon/Target registry!
+                    Adding this item to your cart will add it to your Amazon/Target 
+                    cart, and purchase will be handled there.
+                    <br></br><br></br>
+                    In your cart, you should see a disclaimer on the item denoting it as
+                    an item from our wedding registry, if you do not see that disclaimer,
+                    please contact: <strong>319-212-9050</strong>
+                    <br></br><br></br>
+                    Please, do remember to come back to this page and mark the item as reserved
                     after you buy it.
                 </p>
                 <div className="mt-6 text-right">
